@@ -456,19 +456,22 @@ NSTimeInterval const WPTableViewControllerRefreshTimeout = 300; // 5 minutes
     [keyframeValues addObject:[NSNumber numberWithFloat:currentOffsetX + (animationDirection * offsetX)]]; // start at 0.f
     [keyframeTimes addObject:[NSNumber numberWithFloat:0.f]]; // start at time 0
     
-    // move to within 5pts of ending spot
-    offsetX = endOffsetX - 5.f;
+    // move to within 5pts of ending spot with an EaseOut
+    [keyframeFunctions addObject:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
+    offsetX = endOffsetX;
     [keyframeValues addObject:[NSNumber numberWithFloat:currentOffsetX + (animationDirection * offsetX)]];
     // start at 0.2 seconds expressed as percentage of toal duration
     [keyframeTimes addObject:[NSNumber numberWithFloat:0.2f/animationDuration]];
     
-    // jump back 5 pts
+    // jump back 5 pts EaseIn
+    [keyframeFunctions addObject:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
     offsetX -= 5.f;
     [keyframeValues addObject:[NSNumber numberWithFloat:currentOffsetX + (animationDirection * offsetX)]];
     // start at 0.3 seconds
     [keyframeTimes addObject:[NSNumber numberWithFloat:0.3f/animationDuration]];
     
     // finish at the end
+    [keyframeFunctions addObject:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
     offsetX = endOffsetX;
     CGPoint endPosition = CGPointMake(currentOffsetX + (animationDirection * offsetX), view.layer.position.y);
     [keyframeValues addObject:[NSNumber numberWithFloat:endPosition.x]];
@@ -477,13 +480,22 @@ NSTimeInterval const WPTableViewControllerRefreshTimeout = 300; // 5 minutes
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
     animation.values = keyframeValues;
     animation.keyTimes = keyframeTimes;
-    
-    [view.layer removeAnimationForKey:@"position"];
-    [view.layer addAnimation:animation forKey:@"position"];
-    
+    animation.timingFunctions = keyframeFunctions;
+        
     view.layer.position = endPosition;
     return animation;
 
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    if(flag == YES){
+        //do this when the animation is complete
+        _animatingRemovalOfModerationSwipeView = NO;
+        self.swipeCell = nil;
+        [_swipeView removeFromSuperview];
+        [_swipeView release]; _swipeView = nil;
+        
+    }
 }
 
 - (void)removeSwipeView:(BOOL)animated {
@@ -492,15 +504,11 @@ NSTimeInterval const WPTableViewControllerRefreshTimeout = 300; // 5 minutes
     if (animated)
     {
         _animatingRemovalOfModerationSwipeView = YES;
-        CAKeyframeAnimation *swipeViewAnimation = [self animationForView:self.swipeView withSwipeGesture:_swipeDirection];
         CAKeyframeAnimation *swipeCellAnimation = [self animationForView:self.swipeCell withSwipeGesture:_swipeDirection];
-
-//        do this when the animation is complete
-//        _animatingRemovalOfModerationSwipeView = NO;
-//        self.swipeCell = nil;
-//        [_swipeView removeFromSuperview];
-//        [_swipeView release]; _swipeView = nil;
-
+        CAKeyframeAnimation *swipeViewAnimation = [self animationForView:self.swipeView withSwipeGesture:_swipeDirection];
+        swipeViewAnimation.delegate = self;
+        [self.swipeCell.layer addAnimation:swipeCellAnimation forKey:@"position"];        
+        [self.swipeView.layer addAnimation:swipeViewAnimation forKey:@"position"];
 
     }
     else
