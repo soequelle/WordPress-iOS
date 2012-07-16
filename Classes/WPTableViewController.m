@@ -440,60 +440,68 @@ NSTimeInterval const WPTableViewControllerRefreshTimeout = 300; // 5 minutes
     }
 }
 
+- (CAKeyframeAnimation *)animationForView:(UIView *)view withSwipeGesture:(UISwipeGestureRecognizerDirection)gesture {
+    
+    NSInteger animationDirection = UISwipeGestureRecognizerDirectionRight == _swipeDirection ? -1 : 1;
+    NSMutableArray *keyframeValues =[NSMutableArray arrayWithCapacity:4];
+    NSMutableArray *keyframeTimes = [NSMutableArray arrayWithCapacity:4];
+    NSMutableArray *keyframeFunctions = [NSMutableArray arrayWithCapacity:3]; // animations between points n-1 values
+    CGFloat animationDuration = 0.4f;
+    // Simulate a bouncing effect
+    // start at view's current position
+    CGFloat offsetX = 0.f;
+    CGFloat currentOffsetX = view.layer.position.x;
+    CGFloat endOffsetX = view.layer.frame.size.width;
+    
+    [keyframeValues addObject:[NSNumber numberWithFloat:currentOffsetX + (animationDirection * offsetX)]]; // start at 0.f
+    [keyframeTimes addObject:[NSNumber numberWithFloat:0.f]]; // start at time 0
+    
+    // move to within 5pts of ending spot
+    offsetX = endOffsetX - 5.f;
+    [keyframeValues addObject:[NSNumber numberWithFloat:currentOffsetX + (animationDirection * offsetX)]];
+    // start at 0.2 seconds expressed as percentage of toal duration
+    [keyframeTimes addObject:[NSNumber numberWithFloat:0.2f/animationDuration]];
+    
+    // jump back 5 pts
+    offsetX -= 5.f;
+    [keyframeValues addObject:[NSNumber numberWithFloat:currentOffsetX + (animationDirection * offsetX)]];
+    // start at 0.3 seconds
+    [keyframeTimes addObject:[NSNumber numberWithFloat:0.3f/animationDuration]];
+    
+    // finish at the end
+    offsetX = endOffsetX;
+    CGPoint endPosition = CGPointMake(currentOffsetX + (animationDirection * offsetX), view.layer.position.y);
+    [keyframeValues addObject:[NSNumber numberWithFloat:endPosition.x]];
+    [keyframeTimes addObject:[NSNumber numberWithFloat:1.f]];
+        
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
+    animation.values = keyframeValues;
+    animation.keyTimes = keyframeTimes;
+    
+    [view.layer removeAnimationForKey:@"position"];
+    [view.layer addAnimation:animation forKey:@"position"];
+    
+    view.layer.position = endPosition;
+    return animation;
+
+}
+
 - (void)removeSwipeView:(BOOL)animated {
     if (!self.swipeActionsEnabled || !_swipeCell || (self.swipeCell.frame.origin.x == 0 && self.swipeView.superview == nil)) return;
-    
+        
     if (animated)
     {
         _animatingRemovalOfModerationSwipeView = YES;
-        [UIView animateWithDuration:0.2
-                         animations:^{
-                             if (_swipeDirection == UISwipeGestureRecognizerDirectionRight)
-                             {
-                                 self.swipeView.frame = CGRectMake(-self.swipeView.frame.size.width + 5.0,self.swipeView.frame.origin.y, self.swipeView.frame.size.width, self.swipeView.frame.size.height);
-                                 self.swipeCell.frame = CGRectMake(5.0, self.swipeCell.frame.origin.y, self.swipeCell.frame.size.width, self.swipeCell.frame.size.height);
-                             }
-                             else
-                             {
-                                 self.swipeView.frame = CGRectMake(self.swipeView.frame.size.width - 5.0,self.swipeView.frame.origin.y,self.swipeView.frame.size.width, self.swipeView.frame.size.height);
-                                 self.swipeCell.frame = CGRectMake(-5.0, self.swipeCell.frame.origin.y, self.swipeCell.frame.size.width, self.swipeCell.frame.size.height);
-                             }
-                         }
-                         completion:^(BOOL finished) {
-                             [UIView animateWithDuration:0.1
-                                              animations:^{
-                                                  if (_swipeDirection == UISwipeGestureRecognizerDirectionRight)
-                                                  {
-                                                      self.swipeView.frame = CGRectMake(-self.swipeView.frame.size.width + 10.0,self.swipeView.frame.origin.y,self.swipeView.frame.size.width, self.swipeView.frame.size.height);
-                                                      self.swipeCell.frame = CGRectMake(10.0, self.swipeCell.frame.origin.y, self.swipeCell.frame.size.width, self.swipeCell.frame.size.height);
-                                                  }
-                                                  else
-                                                  {
-                                                      self.swipeView.frame = CGRectMake(self.swipeView.frame.size.width - 10.0,self.swipeView.frame.origin.y,self.swipeView.frame.size.width, self.swipeView.frame.size.height);
-                                                      self.swipeCell.frame = CGRectMake(-10.0, self.swipeCell.frame.origin.y, self.swipeCell.frame.size.width, self.swipeCell.frame.size.height);
-                                                  }
-                                              } completion:^(BOOL finished) {
-                                                  [UIView animateWithDuration:0.1
-                                                                   animations:^{
-                                                                       if (_swipeDirection == UISwipeGestureRecognizerDirectionRight)
-                                                                       {
-                                                                           self.swipeView.frame = CGRectMake(-self.swipeView.frame.size.width ,self.swipeView.frame.origin.y,self.swipeView.frame.size.width, self.swipeView.frame.size.height);
-                                                                           self.swipeCell.frame = CGRectMake(0, self.swipeCell.frame.origin.y, self.swipeCell.frame.size.width, self.swipeCell.frame.size.height);
-                                                                       }
-                                                                       else
-                                                                       {
-                                                                           self.swipeView.frame = CGRectMake(self.swipeView.frame.size.width ,self.swipeView.frame.origin.y,self.swipeView.frame.size.width, self.swipeView.frame.size.height);
-                                                                           self.swipeCell.frame = CGRectMake(0, self.swipeCell.frame.origin.y, self.swipeCell.frame.size.width, self.swipeCell.frame.size.height);
-                                                                       }
-                                                                   }
-                                                                   completion:^(BOOL finished) {
-                                                                       _animatingRemovalOfModerationSwipeView = NO;
-                                                                       self.swipeCell = nil;
-                                                                       [_swipeView removeFromSuperview];
-                                                                       [_swipeView release]; _swipeView = nil;
-                                                                   }];
-                                              }];
-                         }];
+        CAKeyframeAnimation *swipeViewAnimation = [self animationForView:self.swipeView withSwipeGesture:_swipeDirection];
+        CAKeyframeAnimation *swipeCellAnimation = [self animationForView:self.swipeCell withSwipeGesture:_swipeDirection];
+
+//        do this when the animation is complete
+//        _animatingRemovalOfModerationSwipeView = NO;
+//        self.swipeCell = nil;
+//        [_swipeView removeFromSuperview];
+//        [_swipeView release]; _swipeView = nil;
+
+
     }
     else
     {
