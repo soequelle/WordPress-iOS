@@ -18,7 +18,7 @@
 @class WPSegmentedSelectionTableViewController, PostSettingsViewController, PostPreviewViewController;
 
 @interface EditPostViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
-UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate,UIPopoverControllerDelegate,WPKeyboardToolbarDelegate> {
+UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate,UIPopoverControllerDelegate,WPKeyboardToolbarDelegate,UIWebViewDelegate> {
     BOOL isShowPhotoPickerActionSheet;
     BOOL isTextViewEditing;
     BOOL dismiss;
@@ -27,7 +27,7 @@ UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDel
     BOOL isNewCategory;
     BOOL editCustomFields;
 	BOOL isLocalDraft;
-    BOOL hasSaved, isVisible, isPublishing, isShowingKeyboard, isShowingLinkAlert, isExternalKeyboard;
+    BOOL hasSaved, isVisible, isPublishing, isShowingKeyboard, isShowingLinkAlert, isExternalKeyboard, isRotating;
 
     IBOutlet UITextView *textView;
     IBOutlet UITextField *titleTextField;
@@ -45,6 +45,7 @@ UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDel
 	IBOutlet UIBarButtonItem *photoButton;
 	IBOutlet UIBarButtonItem *movieButton;
     IBOutlet UIImageView *tabPointer;
+    IBOutlet UIWebView *richEditWebView;
     
 	
     WPSelectionTableViewController *selectionTableViewController;
@@ -64,6 +65,7 @@ UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDel
 	NSUInteger textViewHeightForRotation;
 	CLLocation *initialLocation;
 	NSArray *statuses;
+    UIWindow *keyboardWindow;
         
     UIView *currentView;
     WPKeyboardToolbar *editorToolbar;
@@ -82,10 +84,9 @@ UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDel
 @property (nonatomic, retain) CLLocation *initialLocation;
 @property (nonatomic, retain) IBOutlet UIButton *locationButton;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *locationSpinner;
-@property (nonatomic, retain) IBOutlet UITextView *textView;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
-@property (nonatomic, retain) IBOutlet UIView *contentView, *subView, *textViewContentView;;
-@property (nonatomic, retain) IBOutlet UITextField *statusTextField, *titleTextField, *tagsTextField, *textViewPlaceHolderField;
+@property (nonatomic, retain) IBOutlet UIView *contentView, *subView, *textViewContentView;
+@property (nonatomic, retain) IBOutlet UITextField *statusTextField, *titleTextField, *tagsTextField;
 @property (nonatomic, retain) IBOutlet UILabel *tagsLabel, *statusLabel, *categoriesLabel, *titleLabel;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *createCategoryBarButtonItem;
 @property (nonatomic, retain) IBOutlet UIButton *hasLocation, *categoriesButton;
@@ -99,6 +100,8 @@ UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDel
 @property (readonly) BOOL hasChanges;
 @property (readonly) CGRect normalTextFrame;
 @property (nonatomic, retain) UIButton *undoButton, *redoButton;
+@property (nonatomic, retain) IBOutlet UIWebView *richEditWebView;
+@property (nonatomic, retain) UIWindow *keyboardWindow;
 
 - (id)initWithPost:(AbstractPost *)aPost;
 

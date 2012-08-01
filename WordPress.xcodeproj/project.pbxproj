@@ -135,6 +135,7 @@
 		3704ACFC13128C9800120911 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3704ACFA13128C9800120911 /* Default.png */; };
 		3704ACFD13128C9800120911 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3704ACFB13128C9800120911 /* Default@2x.png */; };
 		37245ADC13FC23FF006CDBE3 /* WPWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37245ADB13FC23FF006CDBE3 /* WPWebViewController.xib */; };
+		373E584315454C0D00A554AD /* richtext.html in Resources */ = {isa = PBXBuildFile; fileRef = 373E584215454C0D00A554AD /* richtext.html */; };
 		3744A0DE130ABB0800CE7BE1 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3744A0DC130ABB0800CE7BE1 /* HelpViewController.m */; };
 		3744A0DF130ABB0800CE7BE1 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3744A0DD130ABB0800CE7BE1 /* HelpViewController.xib */; };
 		3751D68A136721AE0010B274 /* QuickPhotoUploadProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3751D688136721AE0010B274 /* QuickPhotoUploadProgressController.m */; };
@@ -687,6 +688,7 @@
 		3704ACFA13128C9800120911 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3704ACFB13128C9800120911 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		37245ADB13FC23FF006CDBE3 /* WPWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPWebViewController.xib; sourceTree = "<group>"; };
+		373E584215454C0D00A554AD /* richtext.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = richtext.html; sourceTree = "<group>"; };
 		3744A0DB130ABB0800CE7BE1 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		3744A0DC130ABB0800CE7BE1 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		3744A0DD130ABB0800CE7BE1 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpViewController.xib; path = ../HelpViewController.xib; sourceTree = "<group>"; };
@@ -1394,6 +1396,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				373E584115454BE900A554AD /* RichTextEditor */,
 				30811746151057940028A15E /* Icon-72@2x.png */,
 				E18165FC14E4428B006CE885 /* loader.html */,
 				37245ADB13FC23FF006CDBE3 /* WPWebViewController.xib */,
@@ -1483,6 +1486,14 @@
 				30AF6CFC13C230C600A29C00 /* AboutViewController.m */,
 			);
 			name = About;
+			sourceTree = "<group>";
+		};
+		373E584115454BE900A554AD /* RichTextEditor */ = {
+			isa = PBXGroup;
+			children = (
+				373E584215454C0D00A554AD /* richtext.html */,
+			);
+			name = RichTextEditor;
 			sourceTree = "<group>";
 		};
 		3744A0DA130ABAFA00CE7BE1 /* Help */ = {
@@ -2881,6 +2892,7 @@
 				30811747151057940028A15E /* Icon-72@2x.png in Resources */,
 				30811749151057B50028A15E /* fabric@2x.png in Resources */,
 				E12AAB641513C4CA009D025B /* WPComOAuthController.xib in Resources */,
+				373E584315454C0D00A554AD /* richtext.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3355,7 +3367,6 @@
 					"-lxml2",
 					"-licucore",
 				);
-				PROVISIONING_PROFILE = "568ABEFF-1AAD-48F9-AE8B-4BA7911E3A57";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
