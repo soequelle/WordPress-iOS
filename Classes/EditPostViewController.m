@@ -12,6 +12,8 @@ NSTimeInterval kAnimationDuration = 0.3f;
 - (void) showMediaInUploadingalert;
 - (void)restoreText:(NSString *)text withRange:(NSRange)range;
 - (void)populateSelectionsControllerWithCategories;
+- (void)hideWebViewBackgrounds;
+
 @end
 
 @implementation EditPostViewController
@@ -233,6 +235,8 @@ NSTimeInterval kAnimationDuration = 0.3f;
         movieButton.tintColor = color;
     }
     
+    [self hideWebViewBackgrounds];
+    
 }
 
 - (void) loadPostContent {
@@ -241,6 +245,7 @@ NSTimeInterval kAnimationDuration = 0.3f;
     }
     else {
         NSString *htmlContent = [self.apost.content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
+        NSLog(@"HTMLCONTENT: %@", htmlContent);
         htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
         htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
         [richEditWebView stringByEvaluatingJavaScriptFromString: [NSString stringWithFormat:@"document.getElementById('content').innerHTML = '%@';", htmlContent]];
@@ -1051,6 +1056,27 @@ NSTimeInterval kAnimationDuration = 0.3f;
     return self.apost.hasChanges;
 }
 
+- (void)hideWebViewBackgrounds
+{
+    UIScrollView *scrollView;
+    if ([self.richEditWebView respondsToSelector:@selector(scrollView:)]) {
+        scrollView = self.richEditWebView.scrollView;
+    } else {
+        for (UIView* view in self.richEditWebView.subviews) {
+            if ([view isKindOfClass:[UIScrollView class]]) {
+                scrollView = (UIScrollView*)view;
+            }
+        }
+    }
+    for (UIView *view in scrollView.subviews) {
+        if ([view isKindOfClass:[UIImageView class]]) {
+            view.alpha = 0.0;
+            view.hidden = YES;
+        }
+    }
+}
+
+
 #pragma mark -
 #pragma mark AlertView Delegate Methods
 
@@ -1459,6 +1485,7 @@ NSTimeInterval kAnimationDuration = 0.3f;
     
     // Replace the placeholder with the contents of media.html
     NSString *htmlStr = [media.html stringByReplacingOccurrencesOfString:@"'" withString:@"\'"];
+    NSLog(@"htlStr: %@", htmlStr);
     [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"swapTextForPlaceholder('__media__', '%@');", htmlStr]];
     
     [self refreshUIForCurrentPost];
@@ -1500,7 +1527,9 @@ NSTimeInterval kAnimationDuration = 0.3f;
     if ((self.apost.mt_text_more != nil) && ([self.apost.mt_text_more length] > 0)) {
         [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('content').innerHTML = '%@';", [NSString stringWithFormat:@"%@\n<!--more-->\n%@", self.apost.content, self.apost.mt_text_more]]];
     } else {
-        [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('content').innerHTML = '%@';", self.apost.content]];
+        if (self.apost.content != nil) {
+            [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('content').innerHTML = '%@';", self.apost.content]];
+        }
     }
 }
 
