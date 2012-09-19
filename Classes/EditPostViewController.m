@@ -241,14 +241,14 @@ NSTimeInterval kAnimationDuration = 0.3f;
 
 - (void) loadPostContent {
     if ((self.apost.mt_text_more != nil) && ([self.apost.mt_text_more length] > 0)) {
-        [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('content').innerHTML = '%@';", [NSString stringWithFormat:@"%@\n<!--more-->\n%@", self.apost.content, self.apost.mt_text_more]]];
+        [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setContent('%@');", [NSString stringWithFormat:@"%@\n<!--more-->\n%@", self.apost.content, self.apost.mt_text_more]]];
     }
     else {
         NSString *htmlContent = [self.apost.content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
         NSLog(@"HTMLCONTENT: %@", htmlContent);
         htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
         htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
-        [richEditWebView stringByEvaluatingJavaScriptFromString: [NSString stringWithFormat:@"document.getElementById('content').innerHTML = '%@';", htmlContent]];
+        [richEditWebView stringByEvaluatingJavaScriptFromString: [NSString stringWithFormat:@"setContent('%@');", htmlContent]];
     }
     [self refreshUIForCurrentPost];
 }
@@ -866,7 +866,7 @@ NSTimeInterval kAnimationDuration = 0.3f;
 
 - (void)savePost:(BOOL)upload{
 	self.apost.postTitle = titleTextField.text;
-    self.apost.content = [richEditWebView stringByEvaluatingJavaScriptFromString:@"document.getElementById('content').innerHTML;"];
+    self.apost.content = [richEditWebView stringByEvaluatingJavaScriptFromString:@"getContent();"];
 	if ([self.apost.content rangeOfString:@"<!--more-->"].location != NSNotFound)
 		self.apost.mt_text_more = @"";
     
@@ -1228,7 +1228,7 @@ NSTimeInterval kAnimationDuration = 0.3f;
     if (isTextViewEditing) {
         isTextViewEditing = NO;
 		
-        self.apost.content = [richEditWebView stringByEvaluatingJavaScriptFromString:@"document.getElementById('content').innerHTML;"];
+        self.apost.content = [richEditWebView stringByEvaluatingJavaScriptFromString:@"getContent();"];
 		
 		if (!IS_IPAD) {
             [self refreshButtons];
@@ -1524,11 +1524,12 @@ NSTimeInterval kAnimationDuration = 0.3f;
 
 #pragma mark - UIWebView Delegate Methods
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setPlaceHolder('%@')"]];
     if ((self.apost.mt_text_more != nil) && ([self.apost.mt_text_more length] > 0)) {
-        [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('content').innerHTML = '%@';", [NSString stringWithFormat:@"%@\n<!--more-->\n%@", self.apost.content, self.apost.mt_text_more]]];
+        [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setContent('%@');", [NSString stringWithFormat:@"%@\n<!--more-->\n%@", self.apost.content, self.apost.mt_text_more]]];
     } else {
         if (self.apost.content != nil) {
-            [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('content').innerHTML = '%@';", self.apost.content]];
+            [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setContent('%@');", self.apost.content]];
         }
     }
 }

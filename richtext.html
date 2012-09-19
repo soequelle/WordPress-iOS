@@ -22,6 +22,13 @@
                 -webkit-box-sizing: border-box;
                 -webkit-tap-highlight-color: rgba(0,0,0,0);
             }
+            
+            #content.unedited {
+                text-align: center;
+                padding-top: 25%;
+                color: #CCC;
+                font-size: 18px;
+            }
                         
             img {
                 max-width: 100%;
@@ -36,18 +43,49 @@
         </script>
     </head>
     <body>  
-        <div id="content" contentEditable="true">Tap here to edit.</content>
+        <div id="content" class="unedited" contentEditable="true">Tap here to edit.</div>
         <script type="text/javascript">
-            var content = document.querySelectory('#content');
+            var content = document.querySelector('#content'),
+                placeholder = content.innerHTML;
+            
+            console.log(placeholder, content.innerHTML);
+            
             content.addEventListener('touchstart', function(e){
-                e.preventDefault();
                 this.focus();
-                return false;
             });
             
             content.addEventListener('blur', function(){
-                var text = content.inner
+                if(isBlank()){
+                    content.innerHTML = placeholder;
+                    content.classList.add('unedited');
+                }
             });
+            
+            content.addEventListener('focus', function(){
+                if(content.innerHTML.trim() == placeholder && content.classList.contains('unedited')){
+                    content.classList.remove('unedited');
+                    content.innerHTML = '';
+                }
+            });
+            
+            function isBlank(){
+                return content.innerHTML.trim() == '';
+            }
+            
+            function setPlaceholder(html){
+                placeholder = html;
+            }
+            
+            function setContent(html){
+                content.classList.remove('unedited');
+                content.innerHTML = html;
+            }
+            
+            function getContent(){
+                return content.innerHTML;
+            }
+            
+            
         </script>
     </body>
 </html>
