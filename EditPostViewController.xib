@@ -20,7 +20,6 @@
 			<string>IBUITextField</string>
 			<string>IBUIToolbar</string>
 			<string>IBUIView</string>
-			<string>IBUIWebView</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -249,7 +248,7 @@
 										<string key="NSFrame">{{0, 134}, {320, 1}}</string>
 										<reference key="NSSuperview" ref="805652007"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="490153310"/>
+										<reference key="NSNextKeyView" ref="422965801"/>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<reference key="IBUIImage" ref="22728796"/>
@@ -311,7 +310,7 @@
 											<int key="NSfFlags">16</int>
 										</object>
 									</object>
-									<object class="IBUIWebView" id="490153310">
+									<object class="IBUIView" id="422965801">
 										<reference key="NSNextResponder" ref="805652007"/>
 										<int key="NSvFlags">274</int>
 										<string key="NSFrame">{{0, 136}, {320, 236}}</string>
@@ -320,12 +319,11 @@
 										<reference key="NSNextKeyView" ref="458393363"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<object class="NSColor" key="IBUIBackgroundColor">
-											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MSAxIDEAA</bytes>
+											<int key="NSColorSpace">3</int>
+											<bytes key="NSWhite">MQA</bytes>
+											<reference key="NSCustomColorSpace" ref="16354658"/>
 										</object>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-										<int key="IBUIDataDetectorTypes">1</int>
-										<bool key="IBUIDetectsPhoneNumbers">YES</bool>
 									</object>
 								</object>
 								<string key="NSFrame">{{20, 20}, {320, 372}}</string>
@@ -617,9 +615,9 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">richEditWebView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="490153310"/>
+						<reference key="destination" ref="422965801"/>
 					</object>
-					<int key="connectionID">382</int>
+					<int key="connectionID">388</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -809,7 +807,7 @@
 							<reference ref="707114273"/>
 							<reference ref="536149578"/>
 							<reference ref="818382624"/>
-							<reference ref="490153310"/>
+							<reference ref="422965801"/>
 						</object>
 						<reference key="parent" ref="122958364"/>
 					</object>
@@ -891,8 +889,8 @@
 						<string key="objectName">categoriesButton</string>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">381</int>
-						<reference key="object" ref="490153310"/>
+						<int key="objectID">387</int>
+						<reference key="object" ref="422965801"/>
 						<reference key="parent" ref="805652007"/>
 					</object>
 				</object>
@@ -929,7 +927,8 @@
 					<string>372.IBPluginDependency</string>
 					<string>377.IBPluginDependency</string>
 					<string>377.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
-					<string>381.IBPluginDependency</string>
+					<string>387.CustomClassName</string>
+					<string>387.IBPluginDependency</string>
 				</object>
 				<object class="NSArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -961,6 +960,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="2"/>
+					<string>RichTextEditorWebView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
@@ -976,7 +976,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">386</int>
+			<int key="maxID">388</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -990,7 +990,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addPhoto:</string>
 							<string>addVideo:</string>
-							<string>cancelView:</string>
 							<string>endTextEnteringButtonAction:</string>
 							<string>saveAction:</string>
 							<string>showAddNewCategoryView:</string>
@@ -1003,7 +1002,6 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1023,7 +1021,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addPhoto:</string>
 							<string>addVideo:</string>
-							<string>cancelView:</string>
 							<string>endTextEnteringButtonAction:</string>
 							<string>saveAction:</string>
 							<string>showAddNewCategoryView:</string>
@@ -1042,10 +1039,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">addVideo:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">cancelView:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -1132,7 +1125,7 @@
 							<string>UIBarButtonItem</string>
 							<string>UIBarButtonItem</string>
 							<string>UIBarButtonItem</string>
-							<string>UIWebView</string>
+							<string>RichTextEditorWebView</string>
 							<string>UIBarButtonItem</string>
 							<string>UILabel</string>
 							<string>UITextField</string>
@@ -1233,7 +1226,7 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">richEditWebView</string>
-								<string key="candidateClassName">UIWebView</string>
+								<string key="candidateClassName">RichTextEditorWebView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">settingsButton</string>
@@ -1296,6 +1289,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/EditPostViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">RichTextEditorWebView</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/RichTextEditorWebView.h</string>
 					</object>
 				</object>
 			</object>

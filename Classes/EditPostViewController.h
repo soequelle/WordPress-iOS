@@ -9,6 +9,7 @@
 #import "Post.h"
 #import "UIDevice-hardware.h"
 #import "WPKeyboardToolbar.h"
+#import "RichTextEditorWebView.h"
 
 #define kSelectionsStatusContext ((void *)1000)
 #define kSelectionsCategoriesContext ((void *)2000)
@@ -18,7 +19,7 @@
 @class WPSegmentedSelectionTableViewController, PostSettingsViewController, PostPreviewViewController;
 
 @interface EditPostViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
-UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate,UIPopoverControllerDelegate,WPKeyboardToolbarDelegate,UIWebViewDelegate> {
+UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate,UIPopoverControllerDelegate,WPKeyboardToolbarDelegate, RichTextEditorWebViewDelegate> {
     BOOL isShowPhotoPickerActionSheet;
     BOOL isTextViewEditing;
     BOOL dismiss;
@@ -46,7 +47,6 @@ UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDel
 	IBOutlet UIBarButtonItem *movieButton;
     IBOutlet UIImageView *tabPointer;
     UIActionSheet *currentActionSheet;
-    IBOutlet UIWebView *richEditWebView;
 	
     WPSelectionTableViewController *selectionTableViewController;
     WPSegmentedSelectionTableViewController *segmentedTableViewController;
@@ -69,6 +69,8 @@ UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDel
         
     UIView *currentView;
     WPKeyboardToolbar *editorToolbar;
+    
+    RichTextEditorWebView *richEditWebView;
 }
 
 @property (nonatomic, retain) WPSelectionTableViewController *selectionTableViewController;
@@ -101,7 +103,7 @@ UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDel
 @property (readonly) BOOL hasChanges;
 @property (readonly) CGRect normalTextFrame;
 @property (nonatomic, retain) UIButton *undoButton, *redoButton;
-@property (nonatomic, retain) IBOutlet UIWebView *richEditWebView;
+@property (nonatomic, retain) IBOutlet RichTextEditorWebView *richEditWebView;
 @property (nonatomic, retain) UIWindow *keyboardWindow;
 @property (nonatomic, retain) UIActionSheet *currentActionSheet;
 @property (nonatomic, retain) PostSettingsViewController *postSettingsViewController;

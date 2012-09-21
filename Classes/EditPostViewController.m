@@ -12,8 +12,6 @@ NSTimeInterval kAnimationDuration = 0.3f;
 - (void) showMediaInUploadingalert;
 - (void)restoreText:(NSString *)text withRange:(NSRange)range;
 - (void)populateSelectionsControllerWithCategories;
-- (void)hideWebViewBackgrounds;
-
 @end
 
 @implementation EditPostViewController
@@ -130,9 +128,7 @@ NSTimeInterval kAnimationDuration = 0.3f;
 - (void)viewDidLoad {
     [FileLogger log:@"%@ %@", self, NSStringFromSelector(_cmd)];
     [super viewDidLoad];
-
-    [richEditWebView setDelegate:self];
-    [richEditWebView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"richtext" ofType:@"html"]isDirectory:NO]]];
+    
     titleLabel.text = NSLocalizedString(@"Title:", @"Label for the title of the post field. Should be the same as WP core.");
     tagsLabel.text = NSLocalizedString(@"Tags:", @"Label for the tags field. Should be the same as WP core.");
     tagsTextField.placeholder = NSLocalizedString(@"Separate tags with commas", @"Placeholder text for the tags field. Should be the same as WP core.");
@@ -235,20 +231,16 @@ NSTimeInterval kAnimationDuration = 0.3f;
         movieButton.tintColor = color;
     }
     
-    [self hideWebViewBackgrounds];
-    
+    [self loadPostContent];
 }
 
 - (void) loadPostContent {
     if ((self.apost.mt_text_more != nil) && ([self.apost.mt_text_more length] > 0)) {
-        [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setContent('%@');", [NSString stringWithFormat:@"%@\n<!--more-->\n%@", self.apost.content, self.apost.mt_text_more]]];
+        self.richEditWebView.text = [NSString stringWithFormat:@"%@\n&lt;!--more--&gt;\n%@", self.apost.content, self.apost.mt_text_more];
     }
     else {
-        NSString *htmlContent = [self.apost.content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
-        NSLog(@"HTMLCONTENT: %@", htmlContent);
-        htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
-        htmlContent = [htmlContent stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
-        [richEditWebView stringByEvaluatingJavaScriptFromString: [NSString stringWithFormat:@"setContent('%@');", htmlContent]];
+        
+        self.richEditWebView.text = self.apost.content;
     }
     [self refreshUIForCurrentPost];
 }
@@ -866,7 +858,7 @@ NSTimeInterval kAnimationDuration = 0.3f;
 
 - (void)savePost:(BOOL)upload{
 	self.apost.postTitle = titleTextField.text;
-    self.apost.content = [richEditWebView stringByEvaluatingJavaScriptFromString:@"getContent();"];
+    self.apost.content = self.richEditWebView.text;
 	if ([self.apost.content rangeOfString:@"<!--more-->"].location != NSNotFound)
 		self.apost.mt_text_more = @"";
     
@@ -1056,25 +1048,6 @@ NSTimeInterval kAnimationDuration = 0.3f;
     return self.apost.hasChanges;
 }
 
-- (void)hideWebViewBackgrounds
-{
-    UIScrollView *scrollView;
-    if ([self.richEditWebView respondsToSelector:@selector(scrollView:)]) {
-        scrollView = self.richEditWebView.scrollView;
-    } else {
-        for (UIView* view in self.richEditWebView.subviews) {
-            if ([view isKindOfClass:[UIScrollView class]]) {
-                scrollView = (UIScrollView*)view;
-            }
-        }
-    }
-    for (UIView *view in scrollView.subviews) {
-        if ([view isKindOfClass:[UIImageView class]]) {
-            view.alpha = 0.0;
-            view.hidden = YES;
-        }
-    }
-}
 
 
 #pragma mark -
@@ -1097,7 +1070,8 @@ NSTimeInterval kAnimationDuration = 0.3f;
             //NSString *commentsStr = textView.text;
             //NSRange rangeToReplace = [self selectedLinkRange];
             NSString *urlString = [self validateNewLinkInfo:urlField.text];
-            [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat: @"document.execCommand('createlink', false, '%@');", urlString]];
+            [self.richEditWebView createLink:urlString];
+//            [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat: @"document.execCommand('createlink', false, '%@');", urlString]];
             /*NSString *aTagText = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", urlString, infoText.text];
             
             NSRange range = textView.selectedRange;
@@ -1228,7 +1202,7 @@ NSTimeInterval kAnimationDuration = 0.3f;
     if (isTextViewEditing) {
         isTextViewEditing = NO;
 		
-        self.apost.content = [richEditWebView stringByEvaluatingJavaScriptFromString:@"getContent();"];
+        self.apost.content = self.richEditWebView.text;
 		
 		if (!IS_IPAD) {
             [self refreshButtons];
@@ -1522,17 +1496,6 @@ NSTimeInterval kAnimationDuration = 0.3f;
     }
 }
 
-#pragma mark - UIWebView Delegate Methods
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setPlaceHolder('%@')"]];
-    if ((self.apost.mt_text_more != nil) && ([self.apost.mt_text_more length] > 0)) {
-        [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setContent('%@');", [NSString stringWithFormat:@"%@\n<!--more-->\n%@", self.apost.content, self.apost.mt_text_more]]];
-    } else {
-        if (self.apost.content != nil) {
-            [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setContent('%@');", self.apost.content]];
-        }
-    }
-}
 
 #pragma mark - Keyboard toolbar
 
@@ -1601,10 +1564,10 @@ NSTimeInterval kAnimationDuration = 0.3f;
             // We will use this to insert the image tag later.
             
             NSString *commandStr = [NSString stringWithFormat: @"document.execCommand('inserthtml', false, '__media__');"];
-            [richEditWebView stringByEvaluatingJavaScriptFromString:commandStr];
+            [self.richEditWebView stringByEvaluatingJavaScriptFromString:commandStr];
             
             // Dismiss the keyboard.  Its going to be in the way later on if we don't.
-            [richEditWebView endEditing:YES];
+            [self.richEditWebView endEditing:YES];
             
             // Now we need to add the image
             [self addPhoto:nil];
@@ -1622,10 +1585,10 @@ NSTimeInterval kAnimationDuration = 0.3f;
             // We need to insert a placemarker if we can't retrieve the caret position.
             // We will use this to insert the image tag later.
             NSString *commandStr = [NSString stringWithFormat: @"document.execCommand('inserthtml', false, '__media__');"];
-            [richEditWebView stringByEvaluatingJavaScriptFromString:commandStr];
+            [self.richEditWebView stringByEvaluatingJavaScriptFromString:commandStr];
             
             // Dismiss the keyboard.  Its going to be in the way later on if we don't.
-            [richEditWebView endEditing:YES];
+            [self.richEditWebView endEditing:YES];
             
             // Now we need to add the image		// Now we need to add the video
             [self addVideo:nil];
@@ -1636,7 +1599,7 @@ NSTimeInterval kAnimationDuration = 0.3f;
         [self wrapSelectionWithTag:buttonItem.actionTag];
         [[textView.undoManager prepareWithInvocationTarget:self] restoreText:oldText withRange:oldRange];
         [textView.undoManager setActionName:buttonItem.actionName];*/
-        [richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat: @"document.execCommand('%@');", buttonItem.actionTag]];
+        [self.richEditWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat: @"document.execCommand('%@');", buttonItem.actionTag]];
     }
 }
 
@@ -1824,16 +1787,6 @@ NSTimeInterval kAnimationDuration = 0.3f;
         }
     }
     return YES;
-}
-
-#pragma mark -
-#pragma mark UIWebView delegate
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    if (navigationType != UIWebViewNavigationTypeLinkClicked)
-        return YES;
-    
-    return NO;
 }
 
 #pragma mark -

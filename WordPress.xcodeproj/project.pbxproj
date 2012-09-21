@@ -445,6 +445,7 @@
 		CC24E5F51577E16B00A6D5B5 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC24E5F41577E16B00A6D5B5 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CC313AD115A4360800F7B7C6 /* friend_follow_service_icons.png in Resources */ = {isa = PBXBuildFile; fileRef = CC313ACF15A4360800F7B7C6 /* friend_follow_service_icons.png */; };
 		CC313AD215A4360800F7B7C6 /* friend_follow_service_icons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC313AD015A4360800F7B7C6 /* friend_follow_service_icons@2x.png */; };
+		CC6ADBA6160B6AA6002B80E0 /* RichTextEditorWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6ADBA5160B6AA6002B80E0 /* RichTextEditorWebView.m */; };
 		CC6B3BE715A33E16005A4523 /* WPFriendFinderNudgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6B3BE615A33E16005A4523 /* WPFriendFinderNudgeView.m */; };
 		CC6B3BFD15A35F10005A4523 /* friend_finder_cancel_btn_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6B3BF915A35F10005A4523 /* friend_finder_cancel_btn_highlight.png */; };
 		CC6B3BFE15A35F10005A4523 /* friend_finder_cancel_btn_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6B3BFA15A35F10005A4523 /* friend_finder_cancel_btn_highlight@2x.png */; };
@@ -1169,6 +1170,8 @@
 		CC24E5F41577E16B00A6D5B5 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		CC313ACF15A4360800F7B7C6 /* friend_follow_service_icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend_follow_service_icons.png; sourceTree = "<group>"; };
 		CC313AD015A4360800F7B7C6 /* friend_follow_service_icons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend_follow_service_icons@2x.png"; sourceTree = "<group>"; };
+		CC6ADBA4160B6AA6002B80E0 /* RichTextEditorWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorWebView.h; sourceTree = "<group>"; };
+		CC6ADBA5160B6AA6002B80E0 /* RichTextEditorWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorWebView.m; sourceTree = "<group>"; };
 		CC6B3BE515A33E16005A4523 /* WPFriendFinderNudgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPFriendFinderNudgeView.h; sourceTree = "<group>"; };
 		CC6B3BE615A33E16005A4523 /* WPFriendFinderNudgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPFriendFinderNudgeView.m; sourceTree = "<group>"; };
 		CC6B3BF915A35F10005A4523 /* friend_finder_cancel_btn_highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend_finder_cancel_btn_highlight.png; sourceTree = "<group>"; };
@@ -1541,6 +1544,8 @@
 				5DEB61B3156FCD3400242C35 /* WPWebView.m */,
 				CC6B3BE515A33E16005A4523 /* WPFriendFinderNudgeView.h */,
 				CC6B3BE615A33E16005A4523 /* WPFriendFinderNudgeView.m */,
+				CC6ADBA4160B6AA6002B80E0 /* RichTextEditorWebView.h */,
+				CC6ADBA5160B6AA6002B80E0 /* RichTextEditorWebView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3609,6 +3614,7 @@
 				5D1EE80215E7AF3E007F1F02 /* JetpackSettingsViewController.m in Sources */,
 				5D3E334E15EEBB6B005FC6F2 /* ReachabilityUtils.m in Sources */,
 				5D87E10C15F5120C0012C595 /* SettingsPageViewController.m in Sources */,
+				CC6ADBA6160B6AA6002B80E0 /* RichTextEditorWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

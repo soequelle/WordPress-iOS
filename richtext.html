@@ -46,18 +46,24 @@
         <div id="content" class="unedited" contentEditable="true">Tap here to edit.</div>
         <script type="text/javascript">
             var content = document.querySelector('#content'),
-                placeholder = content.innerHTML;
-            
-            console.log(placeholder, content.innerHTML);
+                placeholder = content.innerHTML,
+                moved = false;
             
             content.addEventListener('touchstart', function(e){
-                this.focus();
+                moved = false;
+            });
+            
+            content.addEventListener('touchmove', function(){
+                moved = true;
+            });
+            
+            content.addEventListener('touchend', function(){
+                if(!moved) this.focus();
             });
             
             content.addEventListener('blur', function(){
                 if(isBlank()){
-                    content.innerHTML = placeholder;
-                    content.classList.add('unedited');
+                    clearContent();
                 }
             });
             
@@ -74,6 +80,9 @@
             
             function setPlaceholder(html){
                 placeholder = html;
+                if(content.classList.contains('unedited')){
+                    content.innerHTML = placeholder;
+                }
             }
             
             function setContent(html){
@@ -82,7 +91,16 @@
             }
             
             function getContent(){
-                return content.innerHTML;
+                if(content.classList.contains('unedited')){
+                    return "";
+                } else {
+                    return content.innerHTML;
+                }
+            }
+            
+            function clearContent(){
+                content.innerHTML = placeholder;
+                content.classList.add('unedited');
             }
             
             
