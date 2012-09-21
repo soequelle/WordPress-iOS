@@ -35,7 +35,6 @@
 
 - (void)initializeEditor {
     _ready = false;
-    _text = [[NSString alloc] initWithString:@""];
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.bounds];
     webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.webView = webView;
@@ -79,10 +78,9 @@
 }
 
 - (void)insertTextContent:(NSString *)text {
-    if ([text isEqualToString:@""]) {
+    if (text == nil || [text isEqualToString:@""]) {
         [self.webView stringByEvaluatingJavaScriptFromString:@"clearContent();"];
     } else {
-        NSLog(@"Setting: %@", [text JSONString]);
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setContent(%@)", [text JSONString]]];
     }
 
