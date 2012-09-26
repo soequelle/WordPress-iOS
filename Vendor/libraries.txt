@@ -26,3 +26,15 @@ Note: Built static lib using scripts/build_facebook_ios_sdk_static_lib.sh
 JSONKit
 Source: https://github.com/johnezang/JSONKit/
 Version: 82157634ca0ca5b6a4a67a194dd11f15d9b72835
+
+GoogleAuthenticator
+Source: https://code.google.com/p/google-authenticator/
+Version: a096a628455a05c5ff3b651e6aeb1dad9a646742
+
+GoogleToolboxForMac
+Source: http://google-toolbox-for-mac.googlecode.com/svn/trunk
+Version: 579
+
+Zxing:
+Source: http://zxing.googlecode.com/svn/trunk
+Version: 2420

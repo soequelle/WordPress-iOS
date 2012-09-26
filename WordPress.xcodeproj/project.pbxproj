@@ -436,6 +436,29 @@
 		CC24E5F51577E16B00A6D5B5 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC24E5F41577E16B00A6D5B5 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CC313AD115A4360800F7B7C6 /* friend_follow_service_icons.png in Resources */ = {isa = PBXBuildFile; fileRef = CC313ACF15A4360800F7B7C6 /* friend_follow_service_icons.png */; };
 		CC313AD215A4360800F7B7C6 /* friend_follow_service_icons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC313AD015A4360800F7B7C6 /* friend_follow_service_icons@2x.png */; };
+		CC4649261612BB2D00AE0AC3 /* WPTwoStepManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4649251612BB2D00AE0AC3 /* WPTwoStepManagerView.m */; };
+		CC46492A1612BE8C00AE0AC3 /* TwoStepAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4649291612BE8C00AE0AC3 /* TwoStepAuthManager.m */; };
+		CC46493F1613552800AE0AC3 /* OTPAuthURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CC46492C16134CCA00AE0AC3 /* OTPAuthURL.m */; };
+		CC4649401613552E00AE0AC3 /* GTMMethodCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CC46493C16134E6400AE0AC3 /* GTMMethodCheck.m */; };
+		CC4649411613553C00AE0AC3 /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = CC46493316134DB600AE0AC3 /* GTMNSString+URLArguments.m */; };
+		CC4649421613553C00AE0AC3 /* GTMNSDictionary+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = CC46493016134D7D00AE0AC3 /* GTMNSDictionary+URLArguments.m */; };
+		CC4649431613553C00AE0AC3 /* GTMNSScanner+Unsigned.m in Sources */ = {isa = PBXBuildFile; fileRef = CC46493616134DDB00AE0AC3 /* GTMNSScanner+Unsigned.m */; };
+		CC4649441613553C00AE0AC3 /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = CC46493916134DFE00AE0AC3 /* GTMStringEncoding.m */; };
+		CC46494A161355D500AE0AC3 /* HOTPGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = CC464947161355D500AE0AC3 /* HOTPGenerator.m */; };
+		CC46494B161355D500AE0AC3 /* TOTPGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = CC464949161355D500AE0AC3 /* TOTPGenerator.m */; };
+		CC46494E161355FF00AE0AC3 /* OTPGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = CC46494D161355FF00AE0AC3 /* OTPGenerator.m */; };
+		CC4649511613566700AE0AC3 /* GTMObjC2Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4649501613566700AE0AC3 /* GTMObjC2Runtime.m */; };
+		CC46495816135D1400AE0AC3 /* OTPAuthURLEntryController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CC46495716135D1400AE0AC3 /* OTPAuthURLEntryController.mm */; };
+		CC464BEE1613614000AE0AC3 /* OTPScannerOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC464BED1613614000AE0AC3 /* OTPScannerOverlayView.m */; };
+		CC464BF2161361BE00AE0AC3 /* UIColor+MobileColors.m in Sources */ = {isa = PBXBuildFile; fileRef = CC464BF1161361BE00AE0AC3 /* UIColor+MobileColors.m */; };
+		CC464C041613643200AE0AC3 /* libZXingWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC464BFF161363FD00AE0AC3 /* libZXingWidget.a */; };
+		CC464C071613645400AE0AC3 /* Decoder.h in Resources */ = {isa = PBXBuildFile; fileRef = CC464C051613645400AE0AC3 /* Decoder.h */; };
+		CC464C081613645400AE0AC3 /* DecoderDelegate.h in Resources */ = {isa = PBXBuildFile; fileRef = CC464C061613645400AE0AC3 /* DecoderDelegate.h */; };
+		CC464C0A1613646100AE0AC3 /* TwoDDecoderResult.h in Resources */ = {isa = PBXBuildFile; fileRef = CC464C091613646100AE0AC3 /* TwoDDecoderResult.h */; };
+		CC46507816136BD900AE0AC3 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CC46507716136BD900AE0AC3 /* libstdc++.dylib */; };
+		CC46507A16136C2B00AE0AC3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC46507916136C2B00AE0AC3 /* CoreFoundation.framework */; };
+		CC46509D16137D6F00AE0AC3 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC46509C16137D6F00AE0AC3 /* CoreVideo.framework */; };
+		CC46509F16137FEB00AE0AC3 /* OTPAuthURLEntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC46509E16137FEB00AE0AC3 /* OTPAuthURLEntryController.xib */; };
 		CC6B3BE715A33E16005A4523 /* WPFriendFinderNudgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6B3BE615A33E16005A4523 /* WPFriendFinderNudgeView.m */; };
 		CC6B3BFD15A35F10005A4523 /* friend_finder_cancel_btn_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6B3BF915A35F10005A4523 /* friend_finder_cancel_btn_highlight.png */; };
 		CC6B3BFE15A35F10005A4523 /* friend_finder_cancel_btn_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6B3BFA15A35F10005A4523 /* friend_finder_cancel_btn_highlight@2x.png */; };
@@ -444,6 +467,7 @@
 		CC9A63AA15E5A427000D653D /* sidebar_note.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9A63A815E5A427000D653D /* sidebar_note.png */; };
 		CC9A63AB15E5A427000D653D /* sidebar_note@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9A63A915E5A427000D653D /* sidebar_note@2x.png */; };
 		CCB3A04014C8E12700D43C3F /* WPReaderTopicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB3A03F14C8E12700D43C3F /* WPReaderTopicsViewController.m */; };
+		CCD228061613FFD100391398 /* WPTwoStepAuthTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD228051613FFD100391398 /* WPTwoStepAuthTableViewCell.m */; };
 		CCDCBC201590BF2A0040B3B1 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCDCBC131590BF2A0040B3B1 /* FBDialog.bundle */; };
 		CCDCBC211590BF2A0040B3B1 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDCBC191590BF2A0040B3B1 /* libfacebook_ios_sdk.a */; };
 		CCEF153114C9EA050001176D /* WPWebAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEF153014C9EA050001176D /* WPWebAppViewController.m */; };
@@ -611,6 +635,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CC464BFE161363FD00AE0AC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC464BF6161363FD00AE0AC3 /* ZXingWidget.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = ZXingWidget;
+		};
+		CC464C00161363FD00AE0AC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC464BF6161363FD00AE0AC3 /* ZXingWidget.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D60398D13DF7CAD006F4B51;
+			remoteInfo = ZXingTests;
+		};
+		CC464C021613642300AE0AC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC464BF6161363FD00AE0AC3 /* ZXingWidget.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = ZXingWidget;
+		};
 		E16AB93E14D978520047A2E5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -1155,6 +1200,47 @@
 		CC24E5F41577E16B00A6D5B5 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		CC313ACF15A4360800F7B7C6 /* friend_follow_service_icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend_follow_service_icons.png; sourceTree = "<group>"; };
 		CC313AD015A4360800F7B7C6 /* friend_follow_service_icons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend_follow_service_icons@2x.png"; sourceTree = "<group>"; };
+		CC4649241612BB2D00AE0AC3 /* WPTwoStepManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTwoStepManagerView.h; sourceTree = "<group>"; };
+		CC4649251612BB2D00AE0AC3 /* WPTwoStepManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTwoStepManagerView.m; sourceTree = "<group>"; };
+		CC4649281612BE8C00AE0AC3 /* TwoStepAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoStepAuthManager.h; sourceTree = "<group>"; };
+		CC4649291612BE8C00AE0AC3 /* TwoStepAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoStepAuthManager.m; sourceTree = "<group>"; };
+		CC46492B16134CCA00AE0AC3 /* OTPAuthURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTPAuthURL.h; path = Vendor/GoogleAuthenticator/OTPAuthURL.h; sourceTree = "<group>"; };
+		CC46492C16134CCA00AE0AC3 /* OTPAuthURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTPAuthURL.m; path = Vendor/GoogleAuthenticator/OTPAuthURL.m; sourceTree = "<group>"; };
+		CC46492F16134D7D00AE0AC3 /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSDictionary+URLArguments.h"; path = "Vendor/GoogleToolboxForMac/GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
+		CC46493016134D7D00AE0AC3 /* GTMNSDictionary+URLArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSDictionary+URLArguments.m"; path = "Vendor/GoogleToolboxForMac/GTMNSDictionary+URLArguments.m"; sourceTree = "<group>"; };
+		CC46493216134DB600AE0AC3 /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+URLArguments.h"; path = "Vendor/GoogleToolboxForMac/GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
+		CC46493316134DB600AE0AC3 /* GTMNSString+URLArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+URLArguments.m"; path = "Vendor/GoogleToolboxForMac/GTMNSString+URLArguments.m"; sourceTree = "<group>"; };
+		CC46493516134DDB00AE0AC3 /* GTMNSScanner+Unsigned.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSScanner+Unsigned.h"; path = "Vendor/GoogleToolboxForMac/GTMNSScanner+Unsigned.h"; sourceTree = "<group>"; };
+		CC46493616134DDB00AE0AC3 /* GTMNSScanner+Unsigned.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSScanner+Unsigned.m"; path = "Vendor/GoogleToolboxForMac/GTMNSScanner+Unsigned.m"; sourceTree = "<group>"; };
+		CC46493816134DFE00AE0AC3 /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMStringEncoding.h; path = Vendor/GoogleToolboxForMac/GTMStringEncoding.h; sourceTree = "<group>"; };
+		CC46493916134DFE00AE0AC3 /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMStringEncoding.m; path = Vendor/GoogleToolboxForMac/GTMStringEncoding.m; sourceTree = "<group>"; };
+		CC46493B16134E6400AE0AC3 /* GTMMethodCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMMethodCheck.h; path = Vendor/GoogleToolboxForMac/GTMMethodCheck.h; sourceTree = "<group>"; };
+		CC46493C16134E6400AE0AC3 /* GTMMethodCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMMethodCheck.m; path = Vendor/GoogleToolboxForMac/GTMMethodCheck.m; sourceTree = "<group>"; };
+		CC46493E16134E9900AE0AC3 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = Vendor/GoogleToolboxForMac/GTMDefines.h; sourceTree = "<group>"; };
+		CC464946161355D500AE0AC3 /* HOTPGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HOTPGenerator.h; path = Vendor/GoogleAuthenticator/HOTPGenerator.h; sourceTree = "<group>"; };
+		CC464947161355D500AE0AC3 /* HOTPGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HOTPGenerator.m; path = Vendor/GoogleAuthenticator/HOTPGenerator.m; sourceTree = "<group>"; };
+		CC464948161355D500AE0AC3 /* TOTPGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOTPGenerator.h; path = Vendor/GoogleAuthenticator/TOTPGenerator.h; sourceTree = "<group>"; };
+		CC464949161355D500AE0AC3 /* TOTPGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOTPGenerator.m; path = Vendor/GoogleAuthenticator/TOTPGenerator.m; sourceTree = "<group>"; };
+		CC46494C161355FF00AE0AC3 /* OTPGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTPGenerator.h; path = Vendor/GoogleAuthenticator/OTPGenerator.h; sourceTree = "<group>"; };
+		CC46494D161355FF00AE0AC3 /* OTPGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTPGenerator.m; path = Vendor/GoogleAuthenticator/OTPGenerator.m; sourceTree = "<group>"; };
+		CC46494F1613566700AE0AC3 /* GTMObjC2Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMObjC2Runtime.h; path = Vendor/GoogleToolboxForMac/GTMObjC2Runtime.h; sourceTree = "<group>"; };
+		CC4649501613566700AE0AC3 /* GTMObjC2Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMObjC2Runtime.m; path = Vendor/GoogleToolboxForMac/GTMObjC2Runtime.m; sourceTree = "<group>"; };
+		CC4649521613570800AE0AC3 /* GTMGarbageCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMGarbageCollection.h; path = Vendor/GoogleToolboxForMac/GTMGarbageCollection.h; sourceTree = "<group>"; };
+		CC46495616135D1400AE0AC3 /* OTPAuthURLEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTPAuthURLEntryController.h; sourceTree = "<group>"; };
+		CC46495716135D1400AE0AC3 /* OTPAuthURLEntryController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OTPAuthURLEntryController.mm; sourceTree = "<group>"; };
+		CC464BEC1613614000AE0AC3 /* OTPScannerOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTPScannerOverlayView.h; path = Vendor/GoogleAuthenticator/OTPScannerOverlayView.h; sourceTree = "<group>"; };
+		CC464BED1613614000AE0AC3 /* OTPScannerOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTPScannerOverlayView.m; path = Vendor/GoogleAuthenticator/OTPScannerOverlayView.m; sourceTree = "<group>"; };
+		CC464BEF1613619000AE0AC3 /* GTMLocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMLocalizedString.h; sourceTree = "<group>"; };
+		CC464BF0161361BE00AE0AC3 /* UIColor+MobileColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MobileColors.h"; sourceTree = "<group>"; };
+		CC464BF1161361BE00AE0AC3 /* UIColor+MobileColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MobileColors.m"; sourceTree = "<group>"; };
+		CC464BF6161363FD00AE0AC3 /* ZXingWidget.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingWidget.xcodeproj; path = Vendor/zxing/iphone/ZXingWidget/ZXingWidget.xcodeproj; sourceTree = "<group>"; };
+		CC464C051613645400AE0AC3 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Decoder.h; path = Vendor/zxing/iphone/ZXingWidget/Classes/Decoder.h; sourceTree = "<group>"; };
+		CC464C061613645400AE0AC3 /* DecoderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DecoderDelegate.h; path = Vendor/zxing/iphone/ZXingWidget/Classes/DecoderDelegate.h; sourceTree = "<group>"; };
+		CC464C091613646100AE0AC3 /* TwoDDecoderResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoDDecoderResult.h; path = Vendor/zxing/iphone/ZXingWidget/Classes/TwoDDecoderResult.h; sourceTree = "<group>"; };
+		CC46507716136BD900AE0AC3 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		CC46507916136C2B00AE0AC3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		CC46509C16137D6F00AE0AC3 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CC46509E16137FEB00AE0AC3 /* OTPAuthURLEntryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTPAuthURLEntryController.xib; sourceTree = "<group>"; };
 		CC6B3BE515A33E16005A4523 /* WPFriendFinderNudgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPFriendFinderNudgeView.h; sourceTree = "<group>"; };
 		CC6B3BE615A33E16005A4523 /* WPFriendFinderNudgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPFriendFinderNudgeView.m; sourceTree = "<group>"; };
 		CC6B3BF915A35F10005A4523 /* friend_finder_cancel_btn_highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend_finder_cancel_btn_highlight.png; sourceTree = "<group>"; };
@@ -1165,6 +1251,9 @@
 		CC9A63A915E5A427000D653D /* sidebar_note@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sidebar_note@2x.png"; sourceTree = "<group>"; };
 		CCB3A03E14C8E12700D43C3F /* WPReaderTopicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPReaderTopicsViewController.h; sourceTree = "<group>"; };
 		CCB3A03F14C8E12700D43C3F /* WPReaderTopicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPReaderTopicsViewController.m; sourceTree = "<group>"; };
+		CCD228031613BC4B00391398 /* libraries.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = libraries.txt; path = Vendor/libraries.txt; sourceTree = "<group>"; };
+		CCD228041613FFD100391398 /* WPTwoStepAuthTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTwoStepAuthTableViewCell.h; sourceTree = "<group>"; };
+		CCD228051613FFD100391398 /* WPTwoStepAuthTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTwoStepAuthTableViewCell.m; sourceTree = "<group>"; };
 		CCDCBC111590BF2A0040B3B1 /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
 		CCDCBC121590BF2A0040B3B1 /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnect.h; sourceTree = "<group>"; };
 		CCDCBC131590BF2A0040B3B1 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBDialog.bundle; sourceTree = "<group>"; };
@@ -1466,8 +1555,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC46509D16137D6F00AE0AC3 /* CoreVideo.framework in Frameworks */,
 				374CB16215B93C0800DD0EBC /* AudioToolbox.framework in Frameworks */,
 				E10B3655158F2D7800419A93 /* CoreGraphics.framework in Frameworks */,
+				8355D67E11D13EAD00A61362 /* MobileCoreServices.framework in Frameworks */,
 				E10B3654158F2D4500419A93 /* UIKit.framework in Frameworks */,
 				E10B3652158F2D3F00419A93 /* QuartzCore.framework in Frameworks */,
 				CC24E5F51577E16B00A6D5B5 /* Accounts.framework in Frameworks */,
@@ -1477,12 +1568,10 @@
 				E1A386CA14DB05F700954CF8 /* CoreMedia.framework in Frameworks */,
 				E1A386C814DB05C300954CF8 /* AVFoundation.framework in Frameworks */,
 				E19DF741141F7BDD000002F3 /* libz.dylib in Frameworks */,
-				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				A01C542E0E24E88400D411F2 /* SystemConfiguration.framework in Frameworks */,
 				296890780FE971DC00770264 /* Security.framework in Frameworks */,
 				83F3E26011275E07004CD686 /* MapKit.framework in Frameworks */,
 				83F3E2D311276371004CD686 /* CoreLocation.framework in Frameworks */,
-				8355D67E11D13EAD00A61362 /* MobileCoreServices.framework in Frameworks */,
 				8355D7D911D260AA00A61362 /* CoreData.framework in Frameworks */,
 				834CE7341256D0DE0046A4A3 /* CFNetwork.framework in Frameworks */,
 				835E2403126E66E50085940B /* AssetsLibrary.framework in Frameworks */,
@@ -1490,6 +1579,10 @@
 				FD21397F13128C5300099582 /* libiconv.dylib in Frameworks */,
 				FD3D6D2C1349F5D30061136A /* ImageIO.framework in Frameworks */,
 				E10B3664158F3B9500419A93 /* CrashReporter.framework in Frameworks */,
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				CC46507A16136C2B00AE0AC3 /* CoreFoundation.framework in Frameworks */,
+				CC46507816136BD900AE0AC3 /* libstdc++.dylib in Frameworks */,
+				CC464C041613643200AE0AC3 /* libZXingWidget.a in Frameworks */,
 				CCDCBC211590BF2A0040B3B1 /* libfacebook_ios_sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1540,6 +1633,7 @@
 				AC34397A0E11435A00E5D79B /* Controllers */,
 				2F706A870DFB229B00B43086 /* Models */,
 				031662E60FFB14C60045D052 /* Views */,
+				CC4649271612BE5C00AE0AC3 /* TwoStepAuth */,
 				2F970F970DF929B8006BD934 /* Constants.h */,
 				1D3623240D0F684500981E51 /* WordPressAppDelegate.h */,
 				1D3623250D0F684500981E51 /* WordPressAppDelegate.m */,
@@ -1622,6 +1716,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC46509C16137D6F00AE0AC3 /* CoreVideo.framework */,
+				CC46507916136C2B00AE0AC3 /* CoreFoundation.framework */,
+				CC46507716136BD900AE0AC3 /* libstdc++.dylib */,
 				CC24E5F41577E16B00A6D5B5 /* Accounts.framework */,
 				CC24E5F01577DBC300A6D5B5 /* AddressBook.framework */,
 				835E2402126E66E50085940B /* AssetsLibrary.framework */,
@@ -2485,6 +2582,114 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		CC4649221612A91600AE0AC3 /* GoogleAuthenticator */ = {
+			isa = PBXGroup;
+			children = (
+				CC464BF0161361BE00AE0AC3 /* UIColor+MobileColors.h */,
+				CC464BF1161361BE00AE0AC3 /* UIColor+MobileColors.m */,
+				CC46492B16134CCA00AE0AC3 /* OTPAuthURL.h */,
+				CC46492C16134CCA00AE0AC3 /* OTPAuthURL.m */,
+				CC464946161355D500AE0AC3 /* HOTPGenerator.h */,
+				CC464947161355D500AE0AC3 /* HOTPGenerator.m */,
+				CC464948161355D500AE0AC3 /* TOTPGenerator.h */,
+				CC464949161355D500AE0AC3 /* TOTPGenerator.m */,
+				CC46494C161355FF00AE0AC3 /* OTPGenerator.h */,
+				CC46494D161355FF00AE0AC3 /* OTPGenerator.m */,
+				CC464BEC1613614000AE0AC3 /* OTPScannerOverlayView.h */,
+				CC464BED1613614000AE0AC3 /* OTPScannerOverlayView.m */,
+			);
+			name = GoogleAuthenticator;
+			sourceTree = "<group>";
+		};
+		CC4649271612BE5C00AE0AC3 /* TwoStepAuth */ = {
+			isa = PBXGroup;
+			children = (
+				CC46495916135D2C00AE0AC3 /* Utils */,
+				CC46495416135CCC00AE0AC3 /* Controllers */,
+				CC46495316135CB800AE0AC3 /* Views */,
+			);
+			name = TwoStepAuth;
+			sourceTree = "<group>";
+		};
+		CC46492E16134D7300AE0AC3 /* GoogleToolboxForMac */ = {
+			isa = PBXGroup;
+			children = (
+				CC46493E16134E9900AE0AC3 /* GTMDefines.h */,
+				CC4649521613570800AE0AC3 /* GTMGarbageCollection.h */,
+				CC46493216134DB600AE0AC3 /* GTMNSString+URLArguments.h */,
+				CC46493316134DB600AE0AC3 /* GTMNSString+URLArguments.m */,
+				CC46492F16134D7D00AE0AC3 /* GTMNSDictionary+URLArguments.h */,
+				CC46493016134D7D00AE0AC3 /* GTMNSDictionary+URLArguments.m */,
+				CC46493516134DDB00AE0AC3 /* GTMNSScanner+Unsigned.h */,
+				CC46493616134DDB00AE0AC3 /* GTMNSScanner+Unsigned.m */,
+				CC46493816134DFE00AE0AC3 /* GTMStringEncoding.h */,
+				CC46493916134DFE00AE0AC3 /* GTMStringEncoding.m */,
+				CC46493B16134E6400AE0AC3 /* GTMMethodCheck.h */,
+				CC46493C16134E6400AE0AC3 /* GTMMethodCheck.m */,
+				CC46494F1613566700AE0AC3 /* GTMObjC2Runtime.h */,
+				CC4649501613566700AE0AC3 /* GTMObjC2Runtime.m */,
+				CC464BEF1613619000AE0AC3 /* GTMLocalizedString.h */,
+			);
+			name = GoogleToolboxForMac;
+			sourceTree = "<group>";
+		};
+		CC46495316135CB800AE0AC3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC4649241612BB2D00AE0AC3 /* WPTwoStepManagerView.h */,
+				CC4649251612BB2D00AE0AC3 /* WPTwoStepManagerView.m */,
+				CCD228041613FFD100391398 /* WPTwoStepAuthTableViewCell.h */,
+				CCD228051613FFD100391398 /* WPTwoStepAuthTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CC46495416135CCC00AE0AC3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC46495616135D1400AE0AC3 /* OTPAuthURLEntryController.h */,
+				CC46495716135D1400AE0AC3 /* OTPAuthURLEntryController.mm */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CC46495916135D2C00AE0AC3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CC4649281612BE8C00AE0AC3 /* TwoStepAuthManager.h */,
+				CC4649291612BE8C00AE0AC3 /* TwoStepAuthManager.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		CC464BF4161363DB00AE0AC3 /* zxing */ = {
+			isa = PBXGroup;
+			children = (
+				CC464BF5161363E800AE0AC3 /* iphone */,
+			);
+			name = zxing;
+			sourceTree = "<group>";
+		};
+		CC464BF5161363E800AE0AC3 /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				CC464C051613645400AE0AC3 /* Decoder.h */,
+				CC464C061613645400AE0AC3 /* DecoderDelegate.h */,
+				CC464C091613646100AE0AC3 /* TwoDDecoderResult.h */,
+				CC464BF6161363FD00AE0AC3 /* ZXingWidget.xcodeproj */,
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
+		CC464BF7161363FD00AE0AC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC464BFF161363FD00AE0AC3 /* libZXingWidget.a */,
+				CC464C01161363FD00AE0AC3 /* ZXingTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CCB3A03814C8DD5100D43C3F /* Reader */ = {
 			isa = PBXGroup;
 			children = (
@@ -2598,14 +2803,18 @@
 		E12F55F714A1F2640060A510 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				E131D20515D5263A009DFB23 /* JSONKit */,
+				CCD228031613BC4B00391398 /* libraries.txt */,
+				E1F807F714641AC700726BC7 /* AFNetworking */,
+				E1EAD53D1554498000C0ED7A /* CameraPlus */,
 				E1B4A9DE12FC8B1000EB3F67 /* EGOTableViewPullRefresh */,
 				CCDCBC101590BF2A0040B3B1 /* facebook-ios-sdk */,
+				CC4649221612A91600AE0AC3 /* GoogleAuthenticator */,
+				CC46492E16134D7300AE0AC3 /* GoogleToolboxForMac */,
+				E131D20515D5263A009DFB23 /* JSONKit */,
 				E12F95B6155820A40067A653 /* KVO+Blocks */,
-				E1EAD53D1554498000C0ED7A /* CameraPlus */,
 				FDA68C1D14AC6CB800151896 /* Reachability */,
-				E1F807F714641AC700726BC7 /* AFNetworking */,
 				837614E8120A7FA3005CCB33 /* XMLRPC */,
+				CC464BF4161363DB00AE0AC3 /* zxing */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -2730,6 +2939,7 @@
 				836FECEA12715E2A000309D8 /* CrashReportView.xib */,
 				A0E293FD0E21037200C6919C /* WPAddCategoryViewController.xib */,
 				ACAC7B690E1F8C0700AC7074 /* WPSelectionTableViewController.xib */,
+				CC46509E16137FEB00AE0AC3 /* OTPAuthURLEntryController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -2891,6 +3101,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CC464C031613642300AE0AC3 /* PBXTargetDependency */,
 			);
 			name = WordPress;
 			productName = WordPress;
@@ -2947,9 +3158,17 @@
 				"zh-Hant",
 				hu,
 				pl,
+				de,
+				fr,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CC464BF7161363FD00AE0AC3 /* Products */;
+					ProjectRef = CC464BF6161363FD00AE0AC3 /* ZXingWidget.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* WordPress */,
@@ -2957,6 +3176,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CC464BFF161363FD00AE0AC3 /* libZXingWidget.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libZXingWidget.a;
+			remoteRef = CC464BFE161363FD00AE0AC3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CC464C01161363FD00AE0AC3 /* ZXingTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ZXingTests.octest;
+			remoteRef = CC464C00161363FD00AE0AC3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -3357,6 +3593,10 @@
 				CC9A63AB15E5A427000D653D /* sidebar_note@2x.png in Resources */,
 				5D1EE80315E7AF3E007F1F02 /* JetpackSettingsViewController.xib in Resources */,
 				E1895ECC1607272B007E6DD5 /* Default-568h@2x.png in Resources */,
+				CC464C071613645400AE0AC3 /* Decoder.h in Resources */,
+				CC464C081613645400AE0AC3 /* DecoderDelegate.h in Resources */,
+				CC464C0A1613646100AE0AC3 /* TwoDDecoderResult.h in Resources */,
+				CC46509F16137FEB00AE0AC3 /* OTPAuthURLEntryController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3566,6 +3806,22 @@
 				5D3E334E15EEBB6B005FC6F2 /* ReachabilityUtils.m in Sources */,
 				5D87E10C15F5120C0012C595 /* SettingsPageViewController.m in Sources */,
 				5DC3A44D1610B9BC00A890BE /* UINavigationController+Rotation.m in Sources */,
+				CC4649261612BB2D00AE0AC3 /* WPTwoStepManagerView.m in Sources */,
+				CC46492A1612BE8C00AE0AC3 /* TwoStepAuthManager.m in Sources */,
+				CC46493F1613552800AE0AC3 /* OTPAuthURL.m in Sources */,
+				CC4649401613552E00AE0AC3 /* GTMMethodCheck.m in Sources */,
+				CC4649411613553C00AE0AC3 /* GTMNSString+URLArguments.m in Sources */,
+				CC4649421613553C00AE0AC3 /* GTMNSDictionary+URLArguments.m in Sources */,
+				CC4649431613553C00AE0AC3 /* GTMNSScanner+Unsigned.m in Sources */,
+				CC4649441613553C00AE0AC3 /* GTMStringEncoding.m in Sources */,
+				CC46494A161355D500AE0AC3 /* HOTPGenerator.m in Sources */,
+				CC46494B161355D500AE0AC3 /* TOTPGenerator.m in Sources */,
+				CC46494E161355FF00AE0AC3 /* OTPGenerator.m in Sources */,
+				CC4649511613566700AE0AC3 /* GTMObjC2Runtime.m in Sources */,
+				CC46495816135D1400AE0AC3 /* OTPAuthURLEntryController.mm in Sources */,
+				CC464BEE1613614000AE0AC3 /* OTPScannerOverlayView.m in Sources */,
+				CC464BF2161361BE00AE0AC3 /* UIColor+MobileColors.m in Sources */,
+				CCD228061613FFD100391398 /* WPTwoStepAuthTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3583,6 +3839,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CC464C031613642300AE0AC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ZXingWidget;
+			targetProxy = CC464C021613642300AE0AC3 /* PBXContainerItemProxy */;
+		};
 		E16AB93F14D978520047A2E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1D6058900D05DD3D006BFB54 /* WordPress */;
@@ -3651,6 +3912,11 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(SRCROOT)/Vendor/zxing/cpp/core/src",
+					"$(SRCROOT)/Vendor/zxing/iphone/ZXingWidget/Classes/**",
+				);
 				INFOPLIST_FILE = "Info-dev.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -3687,6 +3953,11 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(SRCROOT)/Vendor/zxing/cpp/core/src",
+					"$(SRCROOT)/Vendor/zxing/iphone/ZXingWidget/Classes/**",
+				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -3707,10 +3978,6 @@
 		2F30B4C10E342FDF00211B15 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					armv7,
-				);
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
@@ -3749,7 +4016,11 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(SRCROOT)/Vendor/zxing/cpp/core/src",
+					"$(SRCROOT)/Vendor/zxing/iphone/ZXingWidget/Classes/**",
+				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -3770,10 +4041,6 @@
 		83D3E0201215F89F00600B4B /* Beta */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					armv7,
-				);
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
@@ -3817,7 +4084,11 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(SRCROOT)/Vendor/zxing/cpp/core/src",
+					"$(SRCROOT)/Vendor/zxing/iphone/ZXingWidget/Classes/**",
+				);
 				INFOPLIST_FILE = "Info-beta.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -3834,10 +4105,6 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					armv7,
-				);
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -3866,10 +4133,6 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					armv7,
-				);
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Automattic, Inc.";
 				GCC_C_LANGUAGE_STANDARD = c99;
