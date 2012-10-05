@@ -29,6 +29,7 @@
 #import "QuickPhotoViewController.h"
 #import "QuickPhotoButtonView.h"
 #import "CrashReportViewController.h"
+#import "NotificationsViewController.h"
 
 // Height for reader/notification/blog cells
 #define SIDEBAR_CELL_HEIGHT 51.0f
@@ -296,8 +297,13 @@
 
 - (NSInteger)topSectionRowCount {
     if ([WordPressComApi sharedApi].username) {
+#ifdef DEBUG
+        // notifications & reader
+        return 2;
+#else
         // just the reader
         return 1;
+#endif
     } else {
         return 0;
     }
@@ -713,6 +719,9 @@
         if (indexPath.row == 0) {
             title = NSLocalizedString(@"Reader", @"");
             cell.imageView.image = [UIImage imageNamed:@"sidebar_read"];
+        } else {
+            title = NSLocalizedString(@"Notifications", @"");
+            cell.imageView.image = [UIImage imageNamed:@"sidebar_note"];
         }
     } else {
         switch (indexPath.row) {
@@ -877,7 +886,7 @@
     [NSUserDefaults resetStandardUserDefaults];
     
     UIViewController *detailViewController = nil;  
-    if (indexPath.section == 0) { // Reader
+    if (indexPath.section == 0) { // Reader & Notifications
         
         if (indexPath.row == 0) { // Reader
             if ([self.panelNavigationController.detailViewController isMemberOfClass:[WPReaderViewController class]]) {
@@ -893,7 +902,12 @@
             // Reader
             WPReaderViewController *readerViewController = [[[WPReaderViewController alloc] init] autorelease];
             detailViewController = readerViewController;
-        }        
+        } else { // Notifications
+            NotificationsViewController *notificationsController = [[[NotificationsViewController alloc] init] autorelease];
+            notificationsController.title = NSLocalizedString(@"Notifications", nil);
+            detailViewController = notificationsController;
+        }
+        
 
     } else {
         Blog *blog = [self.resultsController objectAtIndexPath:[NSIndexPath indexPathForRow:(indexPath.section - 1) inSection:0]];
