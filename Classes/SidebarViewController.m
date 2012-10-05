@@ -1203,7 +1203,7 @@
     
     self.twoStepView = [[[WPTwoStepManagerView alloc] initWithFrame:twoStepFrame] autorelease];
     [self.view addSubview:self.twoStepView];
-    self.twoStepView.backgroundColor = [UIColor redColor];
+    self.twoStepView.backgroundColor = [UIColor whiteColor];
     self.twoStepView.delegate = self;
     
     
